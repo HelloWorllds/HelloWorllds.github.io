@@ -1,0 +1,884 @@
+@import 'bourbon/bourbon'
+@import 'fonts.css'
+@import '../libs/animate/animate.min.css'
+
+$text-color: #333
+$dark-color: #000
+$red-color: #de0000
+$blue-color: #2c3e50
+$green-color: #67bc5c
+$orange-color: #e87e04
+
+//skills colors
+$html-color: #e34f26
+$css-color: #2965f1
+$jquery-color: #7acef4
+$js-color: #f7df1e
+$less-color: #2a4f84
+$sass-color: #cd669a
+$git-color: #6e5494
+$php-color: #8892be
+$csharp-color: #690081
+$bem-color: #2ae897
+$codepen-color: #fcd000
+
+*
+	box-sizing: border-box
+
+html, body
+	width: 100%
+	height: 100%
+	
+body
+	font-family: 'RobotoRegular', sans-serif
+	color: $text-color
+	font-weight: normal
+	font-size: 16px
+	margin: 0;
+	background-color: #202d3a
+	background-image: url(../images/header_bg.png)
+	background-position: bottom right
+	background-size: 20%
+	background-repeat: no-repeat
+	position: relative
+	line-height: 1.6
+	-webkit-font-smoothing: antialised
+	overflow-x: hidden	
+
+.hidden
+	display: none
+
+.preloader-container
+	position: absolute
+	top: 50%
+	left: 50%
+	width: 70px
+	height: 25px
+	margin-top: -13px
+	margin-left: -3px
+	text-align: center
+	overflow: hidden
+
+.preloader
+	width: 70px
+	height: 70px
+	border-style: solid
+	border-top-color: #fff
+	border-right-color: #fff
+	border-left-color: transparent
+	border-bottom-color: transparent
+	border-radius: 50%
+	box-sizing: border-box
+	animation: rotate 3s ease-in-out infinite
+	transform: rotate(-200deg)
+	opacity: 1
+
+@keyframes rotate
+	0%
+		border-width: 10px
+	25%
+		border-width: 3px
+	50%
+		transform: rotate(115deg)
+		border-width: 10px
+	75%
+		border-width: 3px
+	100%
+		border-width: 10px
+
+.main
+	display: block
+	position: relative
+	width: 1280px
+	max-width: 100%
+	height: 640px
+	margin: 0 auto
+	color: #fff
+	opacity: 0
+
+.header
+	position: absolute
+	top: 40%
+	left: 0
+	width: 50%
+	height: auto
+	transform: translate(0, -50%);
+
+.header__top-text,
+.header__middle-text,
+.header__bottom-text
+	margin: 0
+	letter-spacing: 1px
+
+.header__top-text
+	font-size: 60px
+	color: $blue-color
+
+.header__middle-text
+	font-size: 72px
+	font-weight: normal
+
+.header__bottom-text
+	font-size: 36px
+	color: $blue-color
+
+.main-block
+	position: relative
+	width: 100%
+	height: 100%
+	margin: 0 auto
+	text-align: center
+	font-size: 0
+	z-index: 9
+
+.menu-icon,
+.menu,
+.main-container
+	position: relative
+	display: inline-block
+	vertical-align: top
+	font-size: 14px
+
+.menu-icon
+	width: 5%
+	height: 60px
+	margin-top: 100px
+	cursor: pointer
+	overflow: hidden
+
+.menu-icon_active
+	.menu-icon__top-span
+		animation: top-span-move 0.5s
+		animation-fill-mode: forwards
+	.menu-icon__middle-span
+		animation: middle-span-move 0.5s
+		animation-fill-mode: forwards
+	.menu-icon__bottom-span
+		animation: bottom-span-move 0.5s
+		animation-fill-mode: forwards
+
+.menu-icon__top-span,
+.menu-icon__middle-span,
+.menu-icon__bottom-span
+	position: absolute
+	left: 9px
+	width: 45px
+	height: 4px
+	border-radius: 2px
+	background-color: #fff
+	transform-origin: 50% 50%
+
+.menu-icon__top-span
+	top: 15px
+	animation: top-span-back 0.4s
+	animation-fill-mode: forwards
+
+.menu-icon__middle-span
+	top: 28px
+	animation: middle-span-back 0.4s
+	animation-fill-mode: forwards
+
+.menu-icon__bottom-span
+	top: 41px
+	animation: bottom-span-back 0.4s
+	animation-fill-mode: forwards
+
+@keyframes top-span-move
+	0%
+		top: 15px
+		transform: rotate(0deg)
+	100%
+		top: 28px
+		transform: rotate(45deg)
+
+@keyframes top-span-back
+	0%
+		top: 28px
+		transform: rotate(45deg)
+	100%
+		top: 15px
+		transform: rotate(0deg)
+
+@keyframes middle-span-move
+	0%
+		left: 9px
+	100%
+		left: -100px
+
+@keyframes middle-span-back
+	0%
+		left: -100px
+	100%
+		left: 9px
+
+@keyframes bottom-span-move
+	0%
+		top: 41px
+		transform: rotate(0deg)
+	100%
+		top: 28px
+		transform: rotate(-45deg)
+
+@keyframes bottom-span-back
+	0%
+		top: 28px
+		transform: rotate(-45deg)
+	100%
+		top: 41px
+		transform: rotate(0deg)
+
+.menu,
+.main-container
+	top: -1100px
+	height: 100%
+	background-color: rgba(0, 0, 0, 0.7)
+	opacity: 0
+
+.menu
+	width: 20%
+	padding: 50px 0
+	animation: menu-back 0.5s
+	animation-fill-mode: forwards
+
+.menu_active
+	animation: menu-move 0.5s
+	animation-fill-mode: forwards
+
+.menu__item
+	position: relative
+	width: 100%
+	height: 20%
+	margin-bottom: -1px
+	font-family: 'RobotoBold', sans-serif
+	font-size: 36px
+	text-transform: uppercase
+	border: 1px solid transparent
+	cursor: pointer
+	&:last-child
+		margin-bottom: 0px
+	&:hover
+		.menu__menu-name
+			animation: menu-name-move 0.5s
+			animation-fill-mode: forwards
+		.menu__menu-pic
+			opacity: 1
+			transition: all 0.5s
+
+.menu__menu-name,
+.menu__menu-pic
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background-color: rgba(0, 0, 0, 0.8)
+
+.menu__menu-name
+	padding: 50px 0
+	animation: menu-name-back 0.5s
+	animation-fill-mode: forwards
+	z-index: 2
+
+.menu__menu-name_active
+	animation: menu-name-move 0.5s
+	animation-fill-mode: forwards
+
+.menu__menu-pic
+	background-size: cover
+	background-position: 50%
+	background-repeat: no-repeat
+	z-index: 1
+	opacity: 0
+	transition: all 0.5s
+
+.menu__menu-pic_active
+	opacity: 1
+	transition: all 0.5s
+
+.menu__menu-pic_about
+	background-image: url(../images/pic_3.jpg)
+
+.menu__menu-pic_expirience
+	background-image: url(../images/pic_6.jpg)
+
+.menu__menu-pic_skills
+	background-image: url(../images/pic_1.jpg)
+
+.menu__menu-pic_portfolio
+	background-image: url(../images/pic_5.jpg)
+
+.menu__menu-pic_contacts
+	background-image: url(../images/pic_4.jpg)
+	background-position: 0% 100%	
+
+@keyframes menu-move
+	0%
+		top: -1100px
+		opacity: 0
+	100%
+		top: 0
+		opacity: 1
+
+@keyframes menu-back
+	0%
+		top: 0
+		opacity: 1
+	100%
+		top: -1100px
+		opacity: 0
+
+@keyframes menu-name-move
+	0%
+		left: 0
+	100%
+		left: -50%
+
+@keyframes menu-name-back
+	0%
+		left: -50%
+	100%
+		left: 0
+
+.main-container
+	width: 75%
+	animation: main-container-back 0.5s
+	animation-fill-mode: forwards
+	overflow: hidden
+
+.main-container_active
+	animation: main-container-move 0.5s
+	animation-fill-mode: forwards
+
+.main-container__item
+	position: absolute
+	top: 0
+	right: 0
+	width: calc(100% - 100px)
+	height: calc(100% - 100px)
+	margin: 50px
+	transform-origin: 50% 50%
+	animation: main-container-item-back 0.5s
+	animation-fill-mode: forwards
+
+.main-container__item_active
+	animation: main-container-item-move 0.5s
+	animation-fill-mode: forwards
+
+.main-container__header
+	margin: 0 0 50px 0
+	font-size: 40px
+	text-transform: uppercase
+	letter-spacing: 2px
+
+.main-container__content
+	width: 100%
+	height: calc(100% - 170px)
+	border-radius: 20px
+	overflow: hidden
+
+.main-container__item_about
+	.main-container__top-block
+		width: 100%
+		height: auto
+		padding: 15px 0
+		background-color: $red-color
+		h3
+			margin: 0
+			font-size: 40px
+			text-transform: uppercase
+			letter-spacing: 10px
+		span
+			font-size: 25px
+			text-transform: lowercase
+			letter-spacing: 5px
+	.main-container__middle-block
+		width: 100%
+		height: calc(100% - 200px)
+		padding: 50px 20px
+		color: $text-color
+		background-color: #fff
+		h2
+			margin: 0
+			margin-bottom: 25px
+			font-size: 40px
+			letter-spacing: 1px
+		p
+			margin: 0
+	.main-container__bottom-block
+		width: 100%
+		height: 75px
+		background-color: $red-color
+	.main-container__image
+		width: 150px
+		height: 150px
+		margin: 0 auto
+		border-radius: 50%
+		background-color: #586b4f
+		background-image: url(../images/photo.png)
+		background-position: 50%
+		background-repeat: no-repeat
+		background-size: cover
+
+.main-container__item_expirience
+	.main-container__content
+		padding: 25px 0
+		text-align: left
+
+.main-container__work-item
+	position: relative
+	width: 75%
+	height: 100px
+	margin: 25px 20px
+	padding: 30px 20px
+	border-radius: 20px
+	text-align: center
+	&:after
+		content: ''
+		position: absolute
+		display: block
+		width: 100%
+		height: 1px
+		clear: both
+	&:hover
+		.work-item__hidden-block
+			display: block
+			animation: hidden-block-move 0.5s
+			animation-fill-mode: forwards
+
+.work-item__hidden-block
+	position: absolute
+	display: none
+	bottom: -35px
+	width: 250px
+	height: auto
+	padding: 15px 10px
+	border-radius: 15px
+	text-align: left
+	transform: translateY(100%)
+	z-index: 9
+	&:before
+		content: ''
+		position: absolute
+		display: block
+		top: -38px
+		left: 50%
+		margin-left: -20px
+		border: 20px solid transparent
+		background-color: transparent
+	h4
+		font-size: 18px
+		text-align: center
+
+.main-container__work-item_apelsun
+	float: left
+	background-color: #ff6600
+	.work-item__hidden-block
+		right: 0
+		background-color: inherit
+		&:before
+			border-bottom: 20px solid #ff6600
+
+.main-container__work-item_freelance
+	float: right
+	background-color: #cc0099
+	.work-item__hidden-block
+		left: 0
+		background-color: inherit
+		&:before
+			border-bottom: 20px solid #cc0099
+
+@keyframes hidden-block-move
+	0%
+		bottom: -15px
+	100%
+		bottom: -35px
+
+.main-container__tag
+	display: inline-block
+	width: 20px
+	height: 20px
+	margin: 0 -5px
+	border: none
+	border-top: 2px solid #fff
+	border-left: 2px solid #fff
+	vertical-align: middle
+
+.main-container__tag_left
+	transform: rotate(-45deg)
+
+.main-container__tag_right
+	transform: rotate(135deg)
+
+.main-container__tag-name
+	display: inline-block
+	margin: 0
+	vertical-align: middle
+	font-size: 24px
+	font-weight: normal
+	vertical-align: baseline;
+
+.main-container__tag-name_open
+	text-align: left
+
+.main-container__tag-name_close
+	text-align: right
+
+.main-container__tag-date
+	display: inline-block
+	margin: 0 25px
+	vertical-align: baseline;
+	p
+		display: inline-block
+		margin: 0
+		font-size: 18px
+		font-weight: normal
+
+.skills-item
+	position: relative
+	display: inline-block
+	width: 100px
+	height: 100px
+	margin: 30px
+	border-radius: 50%
+	text-align: center
+	overflow: hidden
+	transition: all 0.5s
+	vertical-align: middle
+	&:hover
+		transform: scale(1.3)
+		transition: all 0.5s
+
+.skills-item-html
+	background-color: rgba(227, 79, 38, 0.3)
+	.skills-item__overlay
+		background-color: $html-color
+	.skills-item__percent:after
+		content: 'html'
+		color: darken($html-color, 25%)
+
+.skills-item-css
+	background-color: rgba(41, 101, 241, 0.3)
+	.skills-item__overlay
+		background-color: $css-color
+	.skills-item__percent:after
+		content: 'css'
+		color: darken($css-color, 25%)
+
+.skills-item-jquery
+	background-color: rgba(122, 206, 244, 0.3)
+	.skills-item__overlay
+		background-color: $jquery-color
+	.skills-item__percent:after
+		content: 'jquery'
+		color: darken($jquery-color, 25%)
+
+.skills-item-js
+	background-color: rgba(247, 223, 30, 0.3)
+	.skills-item__overlay
+		background-color: $js-color
+	.skills-item__percent:after
+		content: 'js'
+		color: darken($js-color, 25%)
+
+.skills-item-less
+	background-color: rgba(42, 79, 132, 0.3)
+	.skills-item__overlay
+		background-color: $less-color
+	.skills-item__percent:after
+		content: 'less'
+		color: darken($less-color, 25%)
+
+.skills-item-sass
+	background-color: rgba(205, 102, 154, 0.3)
+	.skills-item__overlay
+		background-color: $sass-color
+	.skills-item__percent:after
+		content: 'sass'
+		color: darken($sass-color, 25%)
+
+.skills-item-git
+	background-color: rgba(110, 84, 148, 0.3)
+	.skills-item__overlay
+		background-color: $git-color
+	.skills-item__percent:after
+		content: 'git'
+		color: darken($git-color, 25%)
+
+.skills-item-php
+	background-color: rgba(136, 146, 190, 0.3)
+	.skills-item__overlay
+		background-color: $php-color
+	.skills-item__percent:after
+		content: 'php'
+		color: darken($php-color, 25%)
+
+.skills-item-csharp
+	background-color: rgba(105, 0, 129, 0.3)
+	.skills-item__overlay
+		background-color: $csharp-color
+	.skills-item__percent:after
+		content: 'c#'
+		color: darken($csharp-color, 25%)
+
+.skills-item-bem
+	background-color: rgba(42, 232, 151, 0.3)
+	.skills-item__overlay
+		background-color: $bem-color
+	.skills-item__percent:after
+		content: 'bem'
+		color: darken($bem-color, 25%)
+
+.skills-item__percent
+	position: absolute
+	display: block
+	top: 50%
+	left: 50%
+	font-size: 30px
+	font-weight: bold
+	letter-spacing: 2px
+	transform: translate(-50%, -50%)
+	z-index: 9
+	&:after
+		position: absolute
+		bottom: -25px
+		left: 50%
+		font-size: 22px
+		font-weight: bold
+		transform: translate(-50%, 0)
+
+.skills-item__overlay
+	position: absolute
+	bottom: -1px
+	left: -5px
+	right: -5px
+	width: calc(100% + 10px)
+	height: 0%
+
+.main-container__item_portfolio
+	font-size: 0
+	overflow: visible
+	.main-container__content
+		border-radius: 0
+		overflow: visible
+
+.portfolio-item
+	position: relative
+	display: inline-block
+	width: calc(50% - 60px)
+	height: 200px
+	margin-right: 30px
+	margin-left: 30px
+	margin-bottom: 40px
+	font-size: 14px
+	perspective: 800px
+	vertical-align: top
+	z-index: 9
+
+.portfolio-item__inner_image-layer
+	position: absolute
+	top: 0
+	left: 0
+	height: 100%
+	transition: 0.6s
+	z-index: 1
+	&:before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: $blue-color
+		box-shadow: 0 0 100px 50px $blue-color
+		opacity: 0
+		transition: all 0.5s
+		transform: rotateX(114deg) translateZ(-26px)  translateY(110px) scale(0.75)
+		transform-origin: bottom
+	img
+		height: 100%
+
+.portfolio-item__inner_info-layer
+	position: absolute
+	bottom: -20px
+	left: 0
+	width: 100%
+	height: 100%
+	opacity: 0
+	z-index: 10
+	transition: 0.6s
+	transform: rotateX(70deg)
+
+.portfolio-item__name_dtek
+	color: #fadb44
+
+.portfolio-item__name_wexler
+	color: #429ccf
+
+.portfolio-item__name_stroybaza
+	color: #f90
+
+.portfolio-item__name_fs
+	color: #da4748
+
+.portfolio-item__name_tvis
+	color: #004590
+
+.portfolio-item__name_latte
+	color: #f0c3cd
+
+.portfolio-item__link
+	color: #fff
+
+.portfolio-item__link_dtek:hover
+	color: #fadb44
+
+.portfolio-item__link_wexler:hover
+	color: #429ccf
+
+.portfolio-item__link_stroybaza:hover
+	color: #f90
+
+.portfolio-item__link_fs:hover
+	color: #da4748
+
+.portfolio-item__link_tvis:hover
+	color: #004590
+
+.portfolio-item__link_latte:hover
+	color: #f0c3cd
+
+.portfolio-item_image-effect-fall-back:hover
+	.portfolio-item__inner_image-layer
+		transform: rotateX(70deg)
+		&:before
+			opacity: 0.3
+	.portfolio-item__inner_info-layer
+		opacity: 1
+		transform: rotateX(0deg) translateY(-70px)
+
+.main-container__item_contacts
+	.main-container__content
+		padding: 150px 0
+
+.contact-item
+	position: relative
+	display: inline-block
+	width: calc(33.33% - 50px)
+	margin-right: 50px
+	margin-bottom: 80px
+	vertical-align: top
+	&:nth-child(3n)
+		margin-right: 0
+	&:hover
+		.contact-item__tooltip
+			animation: tooltip-show 0.5s
+			animation-fill-mode: forwards
+
+.contact-item_linkedin:hover
+	.contact-item__icon
+		color: #0077b5
+
+.contact-item_git:hover
+	.contact-item__icon
+		color: #6e5494
+
+.contact-item_codepen:hover
+	.contact-item__icon
+		color: $codepen-color
+
+.contact-item_email:hover
+	.contact-item__icon
+		color: #ea4335
+
+.contact-item_resum
+	margin-right: 0
+	.contact-item__icon:hover
+		color: #49a942
+
+.contact-item__icon
+	font-size: 90px
+	text-decoration: none
+	color: #fff
+	transition: all 0.3s
+	&:hover
+		transition: all 0.3s
+
+.contact-item__tooltip
+	position: absolute
+	top: -70px
+	left: 50%
+	padding: 10px
+	transform: translate(-50%, 0)
+	border: none
+	border-radius: 10px
+	background-color: rgba(0, 0, 0, 0.8)
+	opacity: 0
+	animation: tooltip-hide 0.5s
+	animation-fill-mode: forwards
+	&:after
+		content: ''
+		position: absolute
+		display: block
+		bottom: -8px
+		left: 50%
+		width: 15px
+		height: 15px
+		background-color: rgba(0, 0, 0, 0.8)
+		transform: translate(-50%, 0) rotate(45deg)
+
+@keyframes tooltip-show
+	0%
+		top: -50px
+		opacity: 0
+	100%
+		top: -70px
+		opacity: 1
+
+@keyframes tooltip-hide
+	0%
+		top: -70px
+		opacity: 1
+	100%
+		top: -50px
+		opacity: 0
+
+@keyframes main-container-move
+	0%
+		top: -1100px
+		opacity: 0
+	100%
+		top: 0
+		opacity: 1
+
+@keyframes main-container-back
+	0%
+		top: 0
+		opacity: 1
+	100%
+		top: -1100px
+		opacity: 0
+
+@keyframes main-container-item-move
+	0%
+		right: -100%
+		transform: scale(0)
+	100%
+		right: 0
+		transform: scale(1)
+
+@keyframes main-container-item-back
+	0%
+		right: 0
+		transform: scale(1)
+	100%
+		right: -100%
+		transform: scale(0)
+
+footer
+	position: absolute
+	bottom: 0
+	left: 0
+	right: 0
+	margin: 0 auto
+	color: $blue-color
+	text-align: center
