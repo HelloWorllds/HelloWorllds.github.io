@@ -700,6 +700,16 @@
 		margin: 0 auto;
 		margin-bottom: 40px;
 	}
+	
+	.portfolio-item__inner_image-layer {
+	    left: 50%;
+	    transform: translate(-50%, 0);
+	}
+	
+	.portfolio-item_image-effect-fall-back:hover .portfolio-item__inner_image-layer {
+	    -webkit-transform: translate(-50%, 0) rotateX(70deg);
+	    transform: translate(-50%, 0) rotateX(70deg);
+	}
 
 	.main-container__item_contacts .main-container__content {
 		padding: 35px 0;
